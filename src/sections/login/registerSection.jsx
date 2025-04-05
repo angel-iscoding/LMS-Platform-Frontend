@@ -73,9 +73,8 @@ const RegisterSection = () => {
     return (
         <>
             <div className={styles.container}>
-                <BackButton/>
-                <h1>Regístrate</h1> 
-
+                <div className={styles.icon}></div>
+                <BackButton className={styles.backBtn} url={"/home"}/>
                 <form className={styles.form}>
                     <input 
                         type="text" 
