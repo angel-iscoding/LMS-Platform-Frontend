@@ -1,73 +1,114 @@
+:root {
+    --primary-color: #e7e7e7;
+    --secondary-color: #385273;
+    --terceary-color: #00264A;
+}
+
 .container {
     display: flex;
+    position: relative;
     flex-direction: column;
-    width: 40%;
-    min-width: 320px;
-    padding: 50px;
-    background-color: #f1f5f9;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 70%;
+    min-height: 70px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.50);
 }
 
-.errorMessage {
-    color: red;
-    margin-top: 10px;
-}
-
-
-.container a {
-    text-decoration: none;
+.icon {
+    position: absolute;
+    top: -100px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--terceary-color);
 }
 
 .form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
-.form label {
-    font-size: 24px;
-    margin-bottom: 10px;
+.form_group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form_icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--terceary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .form input {
-    border: 1px solid;
-    border-radius: 5px;
-    font-size: 18px;
-    height: 30px;
-    margin-bottom: 10px;
-    padding: 10px;
+    width: 60%;
+    height: 70px;
+    font-size: 20px;
+    border: none;
+    padding-left: 10px;
+    background-color: var(--secondary-color);
+}
+
+.links {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.links a {
+    text-decoration: none;
+    color: var(--terceary-color);
+    font-size: 15px;
+    position: absolute;
+    padding-top: 15px;
+}
+
+#register {
+    left: 15%;
+}
+
+#recover {
+    right: 15%;
 }
 
 .btn {
-    width: 100%;
-    border: 1px solid;
-    border-radius: 5px;
+    font-size: 25px;
+    color: white;
+    width: 60%;
     height: 50px;
-    background-color: #bae6fd;
+    border: none;
+    border-radius: 0px 0px 20px 20px;
+    position: absolute;
+    bottom: -50px;
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
-#bienvenida {
-    font-weight: bold;
-    margin: 10px 0px;
-    font-size: 40px;
-}
-
-#titulo {
-    font-size: 30px;
-}
-
-#recuperar_contra {
-    font-size: 14px;
-    color: #6b7280;
-}
-
-#recuperar_contra a {
-    color: #374151;
-}
-
-#registrar {
-    color: #000;
-    text-decoration: none;
-}
-
-#registrar a {
-    color: #374151;
+@media (max-width: 672px) {
+    .container {
+        min-width: 340px;
+        min-height: 400px;
+    }
+    .links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .links a {
+        position: static;
+    }
+    .form {
+        padding-top: 50px;
+    }
 }

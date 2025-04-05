@@ -64,41 +64,46 @@ const LoginSection = () => {
     return (
         <>
             <div className={style.container}>
-                <p id={style.bienvenida}>¡Bienvenid@ de vuelta!</p>
-
-                <h2 id={style.titulo}>Inicia sesión</h2>
-
+                <div className={style.icon}></div>
                 <form className={style.form}>
-                    <label htmlFor="username">Usuario:</label>
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={userData.username}
-                        onChange={handleInputChange}
-                        placeholder="Ingresa tu usuario"
-                        required
-                    />
+                    <div className={style.form_group}>
+                        <div className={style.form_icon}></div>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={userData.username}
+                            onChange={handleInputChange}
+                            placeholder="Usuario"
+                            required
+                        />
+                    </div>
 
-                    <label htmlFor="password">Contraseña:</label>
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={userData.password}
-                        onChange={handleInputChange}
-                        placeholder="************"
-                        required
-                    />
+                    <div className={style.form_group}>
+                        <div className={style.form_icon}></div>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={userData.password}
+                            onChange={handleInputChange}
+                            placeholder="Contraseña"
+                            required
+                        />    
+                    </div>                    
                 </form>
 
-                <p id={style.registrar}>
-                    ¿Eres nuevo?,{" "}
-                    <a href="#" onClick={() => navigate("/register")}>
-                        ¡Regístrate!
-                    </a>
-                </p>
+                <div className={style.links}>
+                        <a id={style.register} href="#" onClick={() => navigate("/register")}>
+                            Registrate
+                        </a>
+                    
 
+                        <a id={style.recover} href="#" onClick={() => navigate("/recover")}>
+                            ¿Olvidaste tu contraseña?
+                        </a>
+                </div>
+                
                 <button onClick={handleLogin} className={style.btn}>Iniciar sesión</button>
                 
                 {loginError && <p className={style.errorMessage}>{loginError}</p>}
