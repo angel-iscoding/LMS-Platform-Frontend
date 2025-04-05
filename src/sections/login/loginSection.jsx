@@ -94,12 +94,12 @@ const LoginSection = () => {
                 </form>
 
                 <div className={style.links}>
-                        <a id={style.register} href="#" onClick={() => navigate("/register")}>
+                        <a id={style.register} onClick={() => navigate("/home/register")}>
                             Registrate
                         </a>
                     
 
-                        <a id={style.recover} href="#" onClick={() => navigate("/recover")}>
+                        <a id={style.recover} onClick={() => navigate("/home/recover")}>
                             ¿Olvidaste tu contraseña?
                         </a>
                 </div>
