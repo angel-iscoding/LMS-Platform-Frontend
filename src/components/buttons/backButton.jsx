@@ -2,17 +2,17 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import style from "./backButton.module.css";
 
-const BackButton = () => {
+const BackButton = ({ className, url}) => {
     const navigate = useNavigate();
 
     const handleBackButton = () => {
-        navigate('/');
+        navigate(url);
     }
 
 
     return (
         <>
-            <a href="#" className={style.btn}>
+            <a className={`${style.btn} ${className || ""}`}>
                 <button onClick={handleBackButton}>
                     <span className="material-symbols-outlined">arrow_back</span>
                 </button>
