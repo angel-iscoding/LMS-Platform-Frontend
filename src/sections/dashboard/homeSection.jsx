@@ -1,54 +1,53 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../app/store";
-import DateCard from "../../components/cards/dateCard";
+import Search from "../../components/buttons/search";
+import ContentCard from "../../components/cards/contentCard";
 import style from "./homeSection.module.css";
 
 const HomeSection = () => {
     const user = useSelector(selectUser);
-    const [userData, setUserData] = useState({});
-    const [appointments, setAppointments] = useState([]);
+    const [contentData, setContentData] = useState([]);
 
     useEffect(() => {
-        const getUserById = async (userId) => {
-            const url = `http://localhost:8080/user/${userId}`;
-
-            try {
-                const response = await axios.get(url);
-                setUserData(response.data);
-                setAppointments(response.data.appointmets);
-            } catch (error) {
-                console.error('Error al obtener el usuario:', error);
-            }
-        };
-
-        getUserById(user.id); 
-    }, []); 
+        const ContentData = [
+            { title: "Mathematics", taken: 16, remaining: 160, color: "FFEFE2", iconSRC: "/assets/icons/Figma Import/Math.png" },
+            { title: "Physics", taken: 24, remaining: 120, color: "FDF3FC", iconSRC: "/assets/icons/Figma Import/Book.png" },
+            { title: "Chemistry", taken: 60, remaining: 200, color: "F7F9EB", iconSRC: "/assets/icons/Figma Import/Music.png" },
+        ];
+        setContentData(ContentData);
+    }, []);
 
     return (
         <div className={style.container}>
-            <div className={style.head}>
-                <div className={style.titulo}>
-                    <span className={`material-symbols-outlined`}>home</span>
-                    <h1>Home</h1>
-                </div>
-                <div className={style.citas}>
-                    <p>Citas: {appointments.length}</p>
-                    <p>Canceladas: {appointments.filter(appointment => appointment.status === false).length}</p> 
-                </div>
+            <div className={style.top_container}>
+                <h1 id={style.title}>My classes</h1>
+                <Search/>
             </div>
+            <div className={style.container_classes}>
+                <ContentCard 
+                    title="Your own education way"
+                    description="Set your study plan and growth with EduHome."
+                    iconSRC="/assets/icons/Figma Import/Hat.png"
+                    color="14121F"
+                    className={style.card_welcome} 
+                    isDark={true}
+                />
 
-            <div className={style.content}>
-                <h1>Citas</h1>
-                <div className={style.cita}>
-                    {appointments.map(appointment => (
-                        <DateCard key={appointment.id} data={appointment}/>
-                    ))}
-                </div>
+                {contentData.slice(0, 3).map((content, index) => (
+                    <ContentCard
+                        key={index}
+                        title={content.title}
+                        taken={content.taken}
+                        remaining={content.remaining}
+                        iconSRC={content.iconSRC}
+                        color={content.color}
+                        className={style.card_classes}
+                    />
+                ))}
             </div>
         </div>
     );
-}
+};
 
 export default HomeSection;
