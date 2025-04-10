@@ -23,12 +23,6 @@ export const validateRegist = (input) => {
     if (username.trim() === '') {
         errors.username = "Usuario no puede estar vacío";
     }
-    if (!input.nDni || isNaN(input.nDni)) {
-        errors.nDni = "Número de documento no puede estar vacío y debe ser un número";
-    }
-    if (bithdate.trim() === '') {
-        errors.bithdate = "Fecha de nacimiento no puede estar vacía";
-    }
 
     return errors;
 }

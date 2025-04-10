@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import styles from "./registerSection.module.css";
 import { validateRegist } from "../../helpers/validateRegist";
@@ -6,13 +6,14 @@ import BackButton from "../../components/buttons/backButton";
 
 const RegisterSection = () => {
     const [userData, setUserData] = useState({
-        name: '',
         email: '',
-        birthdate: '',
-        nDni: '',
         username: '',
         password: ''
     });
+
+    useEffect(() => {
+        document.title = "Registro - Virtual Classes";
+    }, []);
 
     const [errors, setErrors] = useState({});
     const [registerError, setRegisterError] = useState("");
@@ -36,6 +37,11 @@ const RegisterSection = () => {
     const handleRegister = async(event) => {
         event.preventDefault();
 
+        if (userData.password !== userData.confirmPassword) {   
+            return alert("Las contraseñas no coinciden");
+        }
+
+
         const newErrors = validateRegist(userData);
         setErrors(newErrors);
 
@@ -44,8 +50,6 @@ const RegisterSection = () => {
                 const response = await axios.post('http://localhost:8080/user/register', {
                     name: userData.name,
                     email: userData.email,
-                    birthdate: userData.birthdate,
-                    nDni: userData.nDni,
                     credentials: {
                         username: userData.username,
                         password: userData.password
@@ -55,12 +59,10 @@ const RegisterSection = () => {
                 setRegisterSuccess("¡Registro exitoso! Ahora puedes iniciar sesión con tu nueva cuenta.");
 
                 setUserData({
-                    name: '',
-                    email: '',
-                    birthdate: '',
-                    nDni: '',
                     username: '',
-                    password: ''
+                    email: '',
+                    password: '',
+                    confirmPassword: '',
                 });
 
             } catch (err) {
@@ -73,56 +75,65 @@ const RegisterSection = () => {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.icon}></div>
+                <div className={styles.icon}>
+                    <img src="/assets/icons/Figma Import/Logo.png " alt="" />
+                </div>
                 <BackButton className={styles.backBtn} url={"/home"}/>
                 <form className={styles.form}>
-                    <input 
-                        type="text" 
-                        name="name"
-                        placeholder="Nombre"
-                        value={userData.name}
-                        onChange={handleInputChange}
-                        required
-                    />
-                    <input 
-                        type="email" 
-                        name="email"
-                        value={userData.email}
-                        onChange={handleInputChange}
-                        placeholder="Email" 
-                        required
-                    />
-                    <input 
-                        type="text" 
-                        name="username"
-                        value={userData.username}
-                        onChange={handleInputChange}
-                        placeholder="Usuario" 
-                        required
-                    />
-                    <input 
-                        type="password" 
-                        name="password"
-                        value={userData.password}
-                        onChange={handleInputChange}
-                        placeholder="*************" 
-                        required
-                    />
-                    <input 
-                        type="number" 
-                        name="nDni"
-                        value={userData.nDni}
-                        onChange={handleInputChange}
-                        placeholder="Número de documento" 
-                        required
-                    /> 
-                    <input 
-                        type="datetime-local"
-                        name="birthdate"
-                        value={userData.birthdate}
-                        onChange={handleInputChange}
-                        required
-                    />
+                    <div className={styles.form_group}>    
+                        <div className={styles.form_container_icon}>
+                            <img src="/assets/icons/Figma Import/Email.png" alt="" width={34}/>
+                        </div>
+                        <input 
+                            type="email" 
+                            name="email"
+                            value={userData.email}
+                            onChange={handleInputChange}
+                            placeholder="Email" 
+                            required
+                        />
+                    </div>
+                    <div className={styles.form_group}>
+                        <div className={styles.form_container_icon}>
+                            <img src="/assets/icons/Figma Import/User.png" alt="" width={34}/>
+                        </div>
+                        <input 
+                            type="text" 
+                            name="username"
+                            value={userData.username}
+                            onChange={handleInputChange}
+                            placeholder="Nombre de usuario" 
+                            required
+                        />
+                    </div>
+                    <div className={styles.form_group}>
+                        <div className={styles.form_container_icon}>
+                            <img src="/assets/icons/Figma Import/Lock.png" alt="" width={34}/>
+                        </div>
+                        <input 
+                            type="password" 
+                            name="password"
+                            value={userData.password}
+                            onChange={handleInputChange}
+                            placeholder="Contraseña" 
+                            required
+                        />    
+                    </div>
+                    <div className={styles.form_group}>
+                        <div className={styles.form_container_icon}>
+                            <img src="/assets/icons/Figma Import/Lockopen.png" alt="" width={34}/>
+                        </div>
+                        <input 
+                            type="password" 
+                            name="confirmPassword"
+                            value={userData.confirmPassword}
+                            onChange={handleInputChange}
+                            placeholder="Confirmar contraseña" 
+                            required
+                        />
+                    </div>
+
+                    
                 </form>
 
                 <button onClick={handleRegister} className={styles.btn}>Registrar</button>

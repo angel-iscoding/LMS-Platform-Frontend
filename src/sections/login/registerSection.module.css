@@ -12,7 +12,7 @@
     justify-content: center;
     align-items: center;
     width: 700px;
-    height: 650px;
+    height: 500px;
     min-height: 100px;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 30px;
@@ -21,12 +21,20 @@
 
 
 .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: -100px;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     background-color: var(--terceary-color);
+}
+
+.icon img {
+    width: 70%;
+    height: auto;
 }
 
 .backBtn {
@@ -54,10 +62,25 @@
     height: 70px;
     font-size: 20px;
     border: none;
-    border-radius: 30px;
     padding-left: 30px;
     background-color: var(--secondary-color);
+}
+
+.form_group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     margin-bottom: 20px;
+}
+
+.form_container_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;    
+    height: 70px;
+    background-color: var(--terceary-color);
 }
 
 .btn {
