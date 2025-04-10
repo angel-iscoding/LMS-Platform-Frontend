@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../app/store";
@@ -14,6 +14,10 @@ const LoginSection = () => {
         username: "",
         password: "",
     });
+
+    useEffect(() => {
+        document.title = "Iniciar sesión - Virtual Classes";
+    }, []);
 
     const [errors, setErrors] = useState({});
     const [loginError, setLoginError] = useState("");
@@ -64,10 +68,14 @@ const LoginSection = () => {
     return (
         <>
             <div className={style.container}>
-                <div className={style.icon}></div>
+                <div className={style.icon}>
+                    <img src="/assets/icons/Figma Import/Logo.png " alt="" />
+                </div>
                 <form className={style.form}>
                     <div className={style.form_group}>
-                        <div className={style.form_icon}></div>
+                        <div className={style.form_container_icon}>
+                            <img src="/assets/icons/Figma Import/User.png" alt="" width={34}/>
+                        </div>
                         <input
                             type="text"
                             id="username"
@@ -80,7 +88,9 @@ const LoginSection = () => {
                     </div>
 
                     <div className={style.form_group}>
-                        <div className={style.form_icon}></div>
+                        <div className={style.form_container_icon}>
+                            <img src="/assets/icons/Figma Import/Lock.png" alt="" width={36}/>
+                        </div>
                         <input
                             type="password"
                             id="password"

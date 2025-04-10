@@ -1,7 +1,7 @@
 :root {
     --primary-color: #e7e7e7;
-    --secondary-color: #385273;
-    --terceary-color: #00264A;
+    --secondary-color: #000000;
+    --terceary-color: #01172b;
 }
 
 .container {
@@ -19,12 +19,20 @@
 }
 
 .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: -100px;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     background-color: var(--terceary-color);
+}
+
+.icon img {
+    width: 70%;
+    height: auto;
 }
 
 .form {
@@ -42,13 +50,13 @@
     margin-bottom: 20px;
 }
 
-.form_icon {
-    width: 70px;
-    height: 70px;
-    background-color: var(--terceary-color);
+.form_container_icon {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 70px;    
+    height: 70px;
+    background-color: var(--terceary-color);
 }
 
 .form input {
