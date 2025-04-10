@@ -8,7 +8,7 @@
 }
 
 .logo {
-  width: 80%;
+  width: 75%;
   height: 20%;
   padding: 100px;
   display: flex;
@@ -31,7 +31,7 @@
 
 .link {
   list-style: none;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
 }
 
@@ -40,7 +40,6 @@
   align-items: center;
   color: white;
   text-decoration: none;
-  margin: 0;
 }
 
 .p_link {
