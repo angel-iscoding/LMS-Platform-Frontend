@@ -1,0 +1,29 @@
+.search {
+    width: 25%;
+    min-width: 200px;
+    height: auto;
+    min-height: 50px;
+    font-size: 15px;
+    background-color: #F7F7F7;
+    border: 0.1px #ccc;
+    color: gray;
+    border-radius: 20px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.search input {
+    background-color: transparent;
+    border: none;
+    margin-left: 10px;
+}
+
+.search img {
+    margin-left: 10px;
+}
+
+.search input:focus {
+    outline: none;
+}
