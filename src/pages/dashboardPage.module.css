@@ -1,14 +1,13 @@
 .container_menu {
     display: flex;
     flex-direction: column;
-    width: 20%;
-    min-width: 300px;
+    width: 13%;
     height: 100%;
     background-color: #14121F;
 }
 
 .container_dashboard {
-    width: 80%;
+    width: 87%;
     height: 100%;
     background-color: white;
 }
