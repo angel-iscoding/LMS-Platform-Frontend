@@ -1,0 +1,93 @@
+/* Contenedor principal */
+.calendarContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 10px 15px;
+    border: 2px solid black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado del calendario */
+.calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.monthName {
+    font-weight: bold;
+}
+
+/* Botones de navegación */
+.navButton {
+    width: 30px;
+    height: 30px;
+    padding: 8px;
+    border-radius: 100%;
+    background-color: #f3f4f6;
+    cursor: pointer;
+    border: none;
+}
+
+.navButton:hover {
+    background-color: #e5e7eb;
+}
+
+/* Contenedor de días de la semana */
+.weekDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 8px 0px;
+}
+
+/* Contenedor de días del mes */
+.daysGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+    font-size: 0.875rem;
+}
+
+/* Estilo para cada día */
+.day {
+    padding: 8px;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.day:hover {
+    background-color: #e5e7eb;
+}
+
+.day.selected {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+}
+
+/* Días deshabilitados */
+.day.disabled {
+    color: #d1d5db;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: rgb(86, 138, 206);
+    border-radius: 50%;
+    margin: 4px auto 0;
+    visibility: hidden; /* Oculta el punto pero mantiene el espacio */
+}
+
+.day.hasHomework .dot {
+    visibility: visible; /* Muestra el punto solo si hay tareas */
+}
