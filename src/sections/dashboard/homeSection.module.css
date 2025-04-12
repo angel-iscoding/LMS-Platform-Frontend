@@ -1,32 +1,80 @@
 .container {
+  display: flex;
+  align-items: start;
   width: 100%;
   height: 100%;
 }
 
-.top_container {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  margin: 2% 4%;
-  gap: 25%;
-}
-
-.container_classes {
+.left{
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
+  width: 60%;
+  height: 100%;
+  padding: 1% 0.5% 0% 10%;
 }
 
-.card_welcome {
-  margin: 10px;
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 40%;
+  height: 100%;
+  padding: 1% 10% 0% 0.5%;
 }
 
-.card_classes {
-  margin: 10px;
+.classCards {
+  padding: 30px;
 }
 
-#title {
-  position: relative;
-  font-size: 40px;
-  margin: 2% 2%;
+.class {
+  margin-top: 5px;
 }
+
+.taskOptions {
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.taskOption {
+  width: 90px;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.taskOption:hover {
+  background-color: #e0e0e0;
+}
+
+.taskOption.selected {
+  background-color: black; 
+  color: white; 
+  font-weight: bold; 
+}
+
+.search {
+  display: flex;
+  justify-content: end;
+  width: 100%;
+  margin: 18px;
+}
+
+.calendar {
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+}
+
+#events {
+  font-size: 25px;  
+  padding-bottom: 20px;
+}
+
