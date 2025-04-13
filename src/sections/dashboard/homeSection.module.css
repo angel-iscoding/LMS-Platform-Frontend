@@ -1,3 +1,4 @@
+/* Base container */
 .container {
   display: flex;
   align-items: start;
@@ -5,33 +6,42 @@
   height: 100%;
 }
 
+/* Side Containers */
 .left{
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 65%;
   height: 100%;
-  padding: 1% 0.5% 0% 10%;
 }
 
 .right {
   display: flex;
   flex-direction: column;
   align-items: start;
-  width: 40%;
+  width: 35%;
   height: 100%;
-  padding: 1% 10% 0% 0.5%;
 }
 
+/* Class containers */
+
 .classCards {
-  padding: 30px;
+  padding: 10px;
 }
 
 .class {
-  margin-top: 5px;
+  height: auto;
+}
+
+.classMessage {
+}
+
+/* Task containers */
+
+.taskTab {
+  padding: 2%;
 }
 
 .taskOptions {
-  padding: 10px 0px;
   display: flex;
   align-items: center;
   width: 100%;
@@ -58,6 +68,14 @@
   font-weight: bold; 
 }
 
+/* Calendar section */
+
+.calendar {
+  width: 100%;
+}
+
+/* Search bar */
+
 .search {
   display: flex;
   justify-content: end;
@@ -65,13 +83,38 @@
   margin: 18px;
 }
 
-.calendar {
+/* Profile content */
+
+.profile {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  padding: 20px 0px;
+  position: relative;
 }
 
-.title {
-  margin: 0;
+.profileBackground {
+  width: 100%;
+  height: 40%;
+  background-color: black;
+  border-radius: 10px 10px 0px 0px;
 }
+
+.profileContent {
+  background-color: white;
+  border: solid 1px black;  
+}
+
+/* Font edits */
+
+.title {
+  margin: 10px 20px;
+}
+
+/* ID Styles */
 
 #events {
   font-size: 25px;  

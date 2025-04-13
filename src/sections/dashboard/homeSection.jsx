@@ -5,7 +5,18 @@ import Search from "../../components/buttons/search";
 import ContentCard from "../../components/cards/contentCard";
 import TaskCard from "../../components/cards/taskCard"; // Importa el componente TaskCard
 import SmallCalendar from "../../components/panel/smallCalendar";
+import ProfileCard from "../../components/cards/profileCard";
 import style from "./homeSection.module.css";
+
+//Mock data del usuario
+const mockUserData = {
+    username: "Angel_Af01",
+    name: "Luisangel Avila Afanador",
+    email: "angel@gmail.com",
+    profession: "Computer Science Student",
+    profileURL: "www.profile.com"
+}
+
 
 // Mock data para las clases
 const mockContentData = [
@@ -56,6 +67,7 @@ const mockTaskData = [
 
 const HomeSection = () => {
     const user = useSelector(selectUser);
+    const [userData, setUserData] = useState({})
     const [contentData, setContentData] = useState([]);
     const [taskData, setTaskData] = useState([]); // Estado para las tareas
     const [selectedTaskOption, setSelectedTaskOption] = useState("All");
@@ -64,6 +76,7 @@ const HomeSection = () => {
     useEffect(() => {
         setContentData(mockContentData); // Asigna la mock data de clases al estado
         setTaskData(mockTaskData); // Asigna la mock data de tareas al estado
+        setUserData(mockUserData)
     }, []);
 
     const handleTaskOptionClick = (option) => {
@@ -81,14 +94,14 @@ const HomeSection = () => {
     return (
         <div className={style.container}>
             <div className={style.left}>
-                <h1 id={style.title}>My classes</h1>
+                <h1 className={style.title}>My classes</h1>
                 <div className={style.classCards}>
                     <ContentCard 
                         title="Your own education way"
                         description="Set your study plan and growth with EduHome."
                         iconSRC="/assets/icons/Figma Import/Hat.png"
                         color="14121F"
-                        className={style.class} 
+                        className={`${style.class} ${style.classMessage}`}
                         isDark={true}
                     />
 
@@ -104,7 +117,7 @@ const HomeSection = () => {
                         />
                     ))}
                 </div>
-                <h2>Today's Task</h2>
+                <h2 className={style.title}>Today's Task</h2>
                 <div className={style.taskTab}>
                     <div className={style.taskCategory}>
                         <h3 className={style.title}>My Tasks</h3>
@@ -149,6 +162,16 @@ const HomeSection = () => {
                 <div className={style.calendar}>
                     <h3 id={style.events} className={style.title}>New Events</h3>
                     <SmallCalendar/>
+                </div>
+                <div className={style.profile}>
+                    <div className={style.profileBackground}>
+                    </div>
+                    <ProfileCard
+                        className={style.profileContent}
+                        imgURL={userData.profileURL}
+                        name={userData.name}
+                        profession={userData.profession}
+                    />
                 </div>
             </div>
         </div>
