@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DateCard from "../../components/cards/classCard";
+import DateCard from "../../components/cards/contentCard";
 import style from "./classesSection.module.css";
 
 const ClassesSection = () => {
