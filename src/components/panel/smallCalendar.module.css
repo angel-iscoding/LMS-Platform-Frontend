@@ -91,3 +91,10 @@
 .day.hasHomework .dot {
     visibility: visible; /* Muestra el punto solo si hay tareas */
 }
+
+.today {
+    background-color: #ffcc00; /* Fondo amarillo */
+    color: black; /* Texto negro */
+    font-weight: bold; /* Resalta el texto */
+    border-radius: 50%; /* Hace que el día sea circular */
+}

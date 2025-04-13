@@ -78,6 +78,9 @@ const SmallCalendar = () => {
         );
     };
 
+    // Obtiene el día actual
+    const today = new Date();
+
     return (
         <div className={styles.calendarContainer}>
             <div className={styles.calendarHeader}>
@@ -133,9 +136,17 @@ const SmallCalendar = () => {
                 {daysInMonth.map((day, index) => (
                     <div
                         key={index}
-                        className={`${styles.day} ${hasHomework(day) ? styles.hasHomework : ""}`}
+                        className={`${styles.day} ${
+                            hasHomework(day) ? styles.hasHomework : ""
+                        } ${
+                            today.getDate() === day &&
+                            today.getMonth() === currentDate.getMonth() &&
+                            today.getFullYear() === currentDate.getFullYear()
+                                ? styles.today
+                                : ""
+                        }`}
                     >
-                        {String(day).padStart(2, "0")} 
+                        {String(day).padStart(2, "0")}
                         <div className={styles.dot}></div>
                     </div>
                 ))}
